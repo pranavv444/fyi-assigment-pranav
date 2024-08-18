@@ -252,9 +252,7 @@ export default function ProductsPage() {
                         className="w-full p-2 border border-gray-300 rounded focus:ring-blue-500 focus:border-blue-500"
                       >
                         <option value="">All Brands</option>
-                        <option value="brand1">Brand 1</option>
-                        <option value="brand2">Brand 2</option>
-                        <option value="brand3">Brand 3</option>
+                        <option value="ChicMart">ChicMart</option>
                         {/* Add more brand options as needed */}
                       </select>
                     </div>
