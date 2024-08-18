@@ -10,6 +10,7 @@ export const products = [
     quantity: 1,
     category:"Clothes",
     brand:"ChicMart",
+    rating:4,
     images: [
       {
         id: 1,
@@ -44,6 +45,7 @@ export const products = [
     quantity: 1,
     category:"Clothes",
     brand:"ChicMart",
+    rating:3,
     images: [
       {
         id: 1,
@@ -72,6 +74,7 @@ export const products = [
     quantity: 1,
     category:"Clothes",
     brand:"ChicMart",
+    rating:5,
     images: [
       {
         id: 1,
@@ -105,6 +108,7 @@ export const products = [
     quantity: 1,
     category:"Clothes",
     brand:"ChicMart",
+    rating:4,
     images: [
       {
         id: 1,
@@ -138,6 +142,7 @@ export const products = [
     quantity: 1,
     category:"Clothes",
     brand:"ChicMart",
+    rating:3,
     images: [
       {
         id: 1,
@@ -171,6 +176,7 @@ export const products = [
     quantity: 1,
     category:"Clothes",
     brand:"ChicMart",
+    rating:4,
     images: [
       {
         id: 1,
@@ -204,6 +210,7 @@ export const products = [
     quantity: 1,
     category:"Clothes",
     brand:"ChicMart",
+    rating:3,
     images: [
       {
         id: 1,
@@ -237,6 +244,7 @@ export const products = [
     quantity: 1,
     category:"Clothes",
     brand:"ChicMart",
+    rating:4,
     images: [
       {
         id: 1,
@@ -269,6 +277,7 @@ export const products = [
     quantity: 1,
     category:"Accessories",
     brand:"ChicMart",
+    rating:5,
     images: [
       {
         id: 1,
@@ -296,6 +305,7 @@ export const products = [
     quantity: 1,
     category:"Accessories",
     brand:"ChicMart",
+    rating:5,
     images: [
       {
         id: 1,
@@ -322,6 +332,7 @@ export const products = [
     quantity: 1,
     category:"Accessories",
     brand:"ChicMart",
+    rating:4,
     images: [
       {
         id: 1,
@@ -348,6 +359,7 @@ export const products = [
     quantity: 1,
     category:"Accessories",
     brand:"ChicMart",
+    rating:3,
     images: [
       {
         id: 1,
@@ -374,6 +386,7 @@ export const products = [
     quantity: 1,
     category:"Accessories",
     brand:"ChicMart",
+    rating:2,
     images: [
       {
         id: 1,
@@ -400,6 +413,7 @@ export const products = [
     quantity: 1,
     category:"Footwear",
     brand:"ChicMart",
+    rating:4,
     images: [
       {
         id: 1,
