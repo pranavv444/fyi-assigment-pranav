@@ -80,7 +80,7 @@ export default function ProductsPage() {
   }
 
   return (
-    <div className="bg-gray-100">
+    <div className="bg-white">
       <div className="container mx-auto py-6 px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center border-b border-gray-200 pb-4">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900">

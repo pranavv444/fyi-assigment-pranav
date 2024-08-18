@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Example() {
   return (
-    <div className="relative overflow-hidden bg-gray-400 min-h-screen my-[-45px] svg-hero">
+    <div className="relative overflow-hidden bg-white min-h-screen my-[-45px] svg-hero">
       <div
         className="hidden sm:absolute sm:inset-y-0 sm:block sm:h-full sm:w-full"
         aria-hidden="true"

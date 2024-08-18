@@ -14,8 +14,8 @@ function Navbar() {
   const [cart, setCart] = useCartStore((state) => [state.cart, state.setCart]);
 
   return (
-    <div className="bg-gray-200 sticky top-0 z-50">
-      <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
+    <div className="bg-white sticky top-0 z-50">
+      <nav className="container mx-auto px-8 py-4 flex items-center justify-between">
         <div className="lg:hidden flex items-center space-x-4">
           <Link
             href={navigation[0].href}
@@ -35,8 +35,8 @@ function Navbar() {
           </button>
         </div>
 
-        <Link href="/" className="text-black text-2xl font-Lustria mx-auto lg:mx-0 lg:flex-1 text-center">
-          ChicCart
+        <Link href="/" className="text-black text-3xl font-Lustria mx-auto lg:mx-0 lg:flex-1 text-center">
+          ChicMart
         </Link>
 
         <div className="hidden lg:flex items-center space-x-8">

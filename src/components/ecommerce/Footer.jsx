@@ -3,8 +3,8 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="bg-gray-200 text-black">
-      <div className="container mx-auto px-4 py-8 mt-8">
+    <footer className="bg-white text-black mt-3">
+      <div className="container mx-auto px-4 py-8 ">
         <div className="flex flex-wrap justify-between items-start">
           <div className="w-full md:w-1/3 mb-8 md:mb-0">
             <h2 className="text-2xl font-bold font-Lustria">ChicMart</h2>
