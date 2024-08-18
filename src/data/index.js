@@ -1,13 +1,15 @@
 export const products = [
   {
     id: 1,
-    name: "KharidLo Men Kurta",
+    name: "Men Kurta",
     href: "#",
     price: "2999",
     description:
       "Premium Kurta with a touch of KharidLo. Made from the finest cotton and designed for comfort.",
     options: "8 colors",
     quantity: 1,
+    category:"Clothes",
+    brand:"ChicMart",
     images: [
       {
         id: 1,
@@ -40,6 +42,8 @@ export const products = [
       "Minimalist Kurti with a touch of KharidLo. Made from the finest cotton and designed for comfort.",
     options: "Black",
     quantity: 1,
+    category:"Clothes",
+    brand:"ChicMart",
     images: [
       {
         id: 1,
@@ -66,6 +70,8 @@ export const products = [
       "Men's Kurta with a touch of KharidLo. Made from the finest cotton and designed for comfort.",
     options: "8 colors",
     quantity: 1,
+    category:"Clothes",
+    brand:"ChicMart",
     images: [
       {
         id: 1,
@@ -97,6 +103,8 @@ export const products = [
       "Banarasi Saree with a touch of KharidLo. Made from the finest cotton and designed for comfort.",
     options: "Black",
     quantity: 1,
+    category:"Clothes",
+    brand:"ChicMart",
     images: [
       {
         id: 1,
@@ -128,6 +136,8 @@ export const products = [
       "Casual Kurta with a touch of KharidLo. Made from the finest cotton and designed for comfort.",
     options: "8 colors",
     quantity: 1,
+    category:"Clothes",
+    brand:"ChicMart",
     images: [
       {
         id: 1,
@@ -159,6 +169,8 @@ export const products = [
       "Feel the festive vibes with this Kurta. Made from the finest cotton and designed for comfort.",
     options: "Black",
     quantity: 1,
+    category:"Clothes",
+    brand:"ChicMart",
     images: [
       {
         id: 1,
@@ -190,6 +202,8 @@ export const products = [
       "Georgette Saree with a touch of KharidLo. Made from the finest cotton and designed for comfort.",
     options: "8 colors",
     quantity: 1,
+    category:"Clothes",
+    brand:"ChicMart",
     images: [
       {
         id: 1,
@@ -221,6 +235,8 @@ export const products = [
       "Men's Jacket with a touch of KharidLo. Made from the finest cotton and designed for comfort.",
     options: "Black",
     quantity: 1,
+    category:"Clothes",
+    brand:"ChicMart",
     images: [
       {
         id: 1,
@@ -251,6 +267,8 @@ export const products = [
     description: "Latest smartphone with cutting-edge technology.",
     options: "Black, Blue, Red",
     quantity: 1,
+    category:"Accessories",
+    brand:"ChicMart",
     images: [
       {
         id: 1,
@@ -276,6 +294,8 @@ export const products = [
     description: "Smartwatch with health tracking features.",
     options: "Black, Silver",
     quantity: 1,
+    category:"Accessories",
+    brand:"ChicMart",
     images: [
       {
         id: 1,
@@ -300,6 +320,8 @@ export const products = [
     description: "Modern coffee maker with multiple brewing options.",
     options: "Black, Silver",
     quantity: 1,
+    category:"Accessories",
+    brand:"ChicMart",
     images: [
       {
         id: 1,
@@ -324,6 +346,8 @@ export const products = [
     description: "Stylish sunglasses with UV protection.",
     options: "Black, Brown",
     quantity: 1,
+    category:"Accessories",
+    brand:"ChicMart",
     images: [
       {
         id: 1,
@@ -348,6 +372,8 @@ export const products = [
     description: "Wireless Bluetooth headphones with noise cancellation.",
     options: "Black, White",
     quantity: 1,
+    category:"Accessories",
+    brand:"ChicMart",
     images: [
       {
         id: 1,
@@ -372,6 +398,8 @@ export const products = [
     description: "Comfortable running shoes for daily workouts.",
     options: "Blue, White",
     quantity: 1,
+    category:"Footwear",
+    brand:"ChicMart",
     images: [
       {
         id: 1,
