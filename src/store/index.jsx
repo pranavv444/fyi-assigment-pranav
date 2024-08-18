@@ -1,14 +1,22 @@
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
+import { products } from "@/data";
 
+// Define the product store
 const productStore = (set) => ({
-  product: [],
-  setProduct: (data) => set({ product: data }),
+  product: products, // Initialize with the products array
+  setProduct: (data) => {
+    set({ product: data });
+    // Update localStorage manually when the product array changes
+    localStorage.setItem("product-data", JSON.stringify(data));
+  },
 });
 
+// Create a Zustand store with persistence
 export const useProductStore = create(
   persist(productStore, {
-    name: "product-data", // name of the item in the storage (must be unique)
+    name: "product-data",
+    storage: createJSONStorage(() => localStorage),
   })
 );
 
@@ -19,7 +27,8 @@ const cartStore = (set) => ({
 
 export const useCartStore = create(
   persist(cartStore, {
-    name: "cart-data", // name of the item in the storage (must be unique)
+    name: "cart-data",
+    storage: createJSONStorage(() => localStorage),
   })
 );
 
@@ -30,6 +39,7 @@ const likeStore = (set) => ({
 
 export const useLikeStore = create(
   persist(likeStore, {
-    name: "like-data", // name of the item in the storage (must be unique)
+    name: "like-data",
+    storage: createJSONStorage(() => localStorage),
   })
 );
