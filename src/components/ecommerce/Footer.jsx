@@ -3,7 +3,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="bg-gray-400 text-black">
+    <footer className="bg-gray-200 text-black">
       <div className="container mx-auto px-4 py-8 mt-8">
         <div className="flex flex-wrap justify-between items-start">
           <div className="w-full md:w-1/3 mb-8 md:mb-0">
@@ -73,7 +73,7 @@ function Footer() {
 
         <div className="mt-8 border-t pt-4 text-center">
           <p className="text-sm text-gray-500">
-            &copy; 2024 KharidLo. All rights reserved.
+            &copy; 2024 ChicMart. All rights reserved.
           </p>
         </div>
       </div>

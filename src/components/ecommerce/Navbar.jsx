@@ -14,7 +14,7 @@ function Navbar() {
   const [cart, setCart] = useCartStore((state) => [state.cart, state.setCart]);
 
   return (
-    <div className="bg-gray-300 sticky top-0 z-50">
+    <div className="bg-gray-200 sticky top-0 z-50">
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="lg:hidden flex items-center space-x-4">
           <Link

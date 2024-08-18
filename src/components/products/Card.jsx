@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
-import { useProductStore, useCartStore, useLikeStore } from "@/store";
+import { useCartStore, useLikeStore } from "@/store";
 import { ShoppingCartIcon, CheckCircleIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import toast from "react-hot-toast";
@@ -12,7 +12,7 @@ function Card({ product }) {
   const [like, setLike] = useLikeStore((state) => [state.like, state.setLike]);
 
   return (
-    <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+    <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
       <Link href={`/product-overview?pid=${product.id}`}>
         <div className="relative w-full h-64">
           <Image
