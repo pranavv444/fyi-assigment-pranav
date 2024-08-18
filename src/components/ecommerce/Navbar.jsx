@@ -36,7 +36,7 @@ function Navbar() {
         </div>
 
         <Link href="/" className="text-black text-3xl font-Lustria mx-auto lg:mx-0 lg:flex-1 text-center">
-          ChicMart
+          ChicCart
         </Link>
 
         <div className="hidden lg:flex items-center space-x-8">

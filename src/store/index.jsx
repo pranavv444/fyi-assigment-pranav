@@ -2,17 +2,14 @@ import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 import { products } from "@/data";
 
-// Define the product store
 const productStore = (set) => ({
-  product: products, // Initialize with the products array
+  product: products, 
   setProduct: (data) => {
     set({ product: data });
-    // Update localStorage manually when the product array changes
     localStorage.setItem("product-data", JSON.stringify(data));
   },
 });
 
-// Create a Zustand store with persistence
 export const useProductStore = create(
   persist(productStore, {
     name: "product-data",
