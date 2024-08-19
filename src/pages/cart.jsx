@@ -1,119 +1,12 @@
-// import React from "react";
-// import { useCartStore } from "@/store";
-// import {
-//   calculateTotal,
-//   calculateTax,
-//   calculateDiscount,
-//   calculatePromoDiscount,
-//   calculateShipping,
-//   calculateGrandTotal,
-//   calculateTotalBeforePromo,
-// } from "@/utils/utilityFunctions";
-
-// export default function Cart() {
-//   const [cart, setCart] = useCartStore((state) => [state.cart, state.setCart]);
-//   const [promoCode, setPromoCode] = React.useState("");
-//   const [enterPromoCode, setEnterPromoCode] = React.useState(false);
-//   const [isPromoCodeValid, setIsPromoCodeValid] = React.useState(false);
-
-//   return (
-//     <div className="bg-white">
-//       <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-//         <div className="flex flex-col lg:flex-row lg:justify-between">
-//           <div className="lg:w-3/4">
-//             {cart.length > 0 ? (
-//               cart.map((product) => (
-//                 <div key={product.id} className="flex flex-col mb-4">
-//                   {/* Product details */}
-//                   <div className="flex items-center">
-//                     <img
-//                       src={product.imageSrc}
-//                       alt={product.imageAlt}
-//                       className="w-20 h-20 object-cover"
-//                     />
-//                     <div className="ml-4">
-//                       <h3 className="text-lg font-medium">{product.name}</h3>
-//                       <p className="text-sm text-gray-500">
-//                         {product.description}
-//                       </p>
-//                       <p className="text-sm text-gray-900">
-//                         Quantity: {product.quantity}
-//                       </p>
-//                       <p className="text-sm text-gray-900">
-//                         Price: ₹{product.price}
-//                       </p>
-//                     </div>
-//                   </div>
-//                 </div>
-//               ))
-//             ) : (
-//               <div className="flex flex-row justify-center py-10 w-full">
-//                 <p className="text-lg font-medium text-gray-900">
-//                   Your cart is empty.
-//                 </p>
-//               </div>
-//             )}
-//           </div>
-
-//           <div className="lg:w-1/4 lg:pl-8">
-//             <div className="border-t border-gray-200 py-6">
-//               <h2 className="text-lg font-medium text-gray-900">Order Summary</h2>
-//               <div className="mt-4">
-//                 <div className="flex justify-between text-sm text-gray-600">
-//                   <p>Subtotal</p>
-//                   <p>₹{calculateTotal(cart)}</p>
-//                 </div>
-//                 <div className="flex justify-between text-sm text-gray-600">
-//                   <p>Tax</p>
-//                   <p>₹{calculateTax(cart)}</p>
-//                 </div>
-//                 <div className="flex justify-between text-sm text-gray-600">
-//                   <p>Discount</p>
-//                   <p>-₹{calculateDiscount(cart)}</p>
-//                 </div>
-//                 <div className="flex justify-between text-sm text-gray-600">
-//                   <p>Shipping</p>
-//                   <p>₹{calculateShipping(cart)}</p>
-//                 </div>
-//                 {promoCode && (
-//                   <div className="flex justify-between text-sm text-gray-600">
-//                     <p>Promo Discount</p>
-//                     <p>-₹{calculatePromoDiscount(cart, promoCode)}</p>
-//                   </div>
-//                 )}
-//                 <div className="flex justify-between text-sm text-gray-900 font-medium">
-//                   <p>Total</p>
-//                   <p>₹{calculateGrandTotal(cart, promoCode)}</p>
-//                 </div>
-//               </div>
-//               <div className="mt-6">
-//                 <input
-//                   type="text"
-//                   value={promoCode}
-//                   onChange={(e) => setPromoCode(e.target.value)}
-//                   placeholder="Promo Code"
-//                   className="w-full border border-gray-300 px-4 py-2"
-//                 />
-//                 <button
-//                   onClick={() => setEnterPromoCode(true)}
-//                   className="mt-2 w-full bg-gray-900 text-white px-4 py-2"
-//                 >
-//                   Apply
-//                 </button>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-import { CheckIcon, ClockIcon } from "@heroicons/react/20/solid";
+import {
+  CheckIcon,
+  MinusIcon,
+  PlusIcon,
+  TrashIcon,
+} from "@heroicons/react/24/outline";
 import React from "react";
 import { useCartStore } from "@/store";
 import Image from "next/image";
-import { PlusIcon, MinusIcon } from "@heroicons/react/24/outline";
 import toast from "react-hot-toast";
 import EmptyCart from "../../public/png/empty-cart.png";
 import {
@@ -133,74 +26,59 @@ export default function Cart() {
   const [promoCode, setPromoCode] = React.useState("");
   const [enterPromoCode, setEnterPromoCode] = React.useState(false);
   const [isPromoCodeValid, setIsPromoCodeValid] = React.useState(false);
+
   return (
-    <div className="bg-white font-Lato">
+    <div className="bg-gray-50 font-Lato">
       <div className="mx-auto max-w-6xl py-4 px-4 sm:py-8 sm:px-6 lg:px-8">
         <h1 className="text-3xl font-bold tracking-tight text-gray-900">
           Shopping Cart
         </h1>
 
-        {cart?.length != 0 ? (
+        {cart?.length !== 0 ? (
           <form className="mt-12 flex flex-col lg:flex-row lg:space-x-8">
             <div className="lg:w-3/4">
               <h2 className="sr-only">Items in your shopping cart</h2>
 
-              <ul
-                role="list"
-                className="divide-y divide-gray-200 border-t border-b border-gray-200"
-              >
+              <ul role="list" className="space-y-6">
                 {cart.map((product, productIdx) => (
-                  <li key={product.id} className="flex py-6 sm:py-10">
-                    <div className="flex-shrink-0">
+                  <li
+                    key={product.id}
+                    className="bg-white rounded-lg shadow p-4"
+                  >
+                    <div className="flex items-center space-x-4">
                       <Image
                         src={product.imageSrc}
                         alt={product.imageAlt}
-                        className="h-24 w-24 rounded-lg object-cover object-center sm:h-32 sm:w-32"
+                        className="h-24 w-24 rounded-lg object-cover object-center"
                         width={96}
                         height={96}
                       />
-                    </div>
-
-                    <div className="relative ml-4 flex flex-1 flex-col justify-between sm:ml-6">
-                      <div>
-                        <div className="flex justify-between sm:grid sm:grid-cols-2">
-                          <div className="pr-6">
-                            <h3 className="text-sm">
-                              <a
-                                href={product.href}
-                                className="font-medium text-gray-700 hover:text-gray-800"
-                              >
-                                {product.name}
-                              </a>
+                      <div className="flex-1">
+                        <div className="flex justify-between items-center">
+                          <div>
+                            <h3 className="text-lg font-medium text-gray-700">
+                              {product.name}
                             </h3>
                             <p className="mt-1 text-sm text-gray-500">
                               {product.color}
                             </p>
-                            {product.size ? (
+                            {product.size && (
                               <p className="mt-1 text-sm text-gray-500">
-                                {product.size}
+                                Size: {product.size}
                               </p>
-                            ) : null}
+                            )}
                           </div>
-
-                          <p className="text-right text-sm font-medium text-gray-900">
-                            {"₹ " +
-                              parseFloat(product.price) *
-                                parseFloat(product.quantity)}
+                          <p className="text-lg font-medium text-gray-900">
+                            ₹
+                            {parseFloat(product.price) *
+                              parseFloat(product.quantity)}
                           </p>
                         </div>
-
-                        <div className="mt-4 flex items-center sm:absolute sm:top-0 sm:left-1/2 sm:mt-0 sm:block">
-                          <label
-                            htmlFor={`quantity-${productIdx}`}
-                            className="sr-only"
-                          >
-                            Quantity, {product.name}
-                          </label>
-                          <div className="flex flex-row items-center gap-x-2">
+                        <div className="mt-4 flex items-center space-x-4">
+                          <div className="flex items-center space-x-2">
                             <button
-                              className="bg-gray-200 text-gray-700 rounded-full p-2 hover:bg-gray-300"
-                              aria-hidden="true"
+                              type="button"
+                              className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"
                               onClick={() => {
                                 if (product?.quantity === 10) {
                                   toast.error("Maximum quantity is 10");
@@ -219,14 +97,14 @@ export default function Cart() {
                                 );
                               }}
                             >
-                              <PlusIcon className="h-5 w-5" />
+                              <PlusIcon className="h-5 w-5 text-gray-700" />
                             </button>
-                            <div className="bg-slate-100 rounded-md px-4 py-1">
+                            <div className="bg-gray-100 rounded-md px-4 py-1">
                               {product.quantity}
                             </div>
                             <button
-                              className="bg-gray-200 text-gray-700 rounded-full p-2 hover:bg-gray-300"
-                              aria-hidden="true"
+                              type="button"
+                              className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"
                               onClick={() => {
                                 if (product?.quantity === 1) {
                                   toast.error("Minimum quantity is 1");
@@ -245,32 +123,26 @@ export default function Cart() {
                                 );
                               }}
                             >
-                              <MinusIcon className="h-5 w-5" />
+                              <MinusIcon className="h-5 w-5 text-gray-700" />
                             </button>
                           </div>
-
                           <button
                             type="button"
-                            className="ml-4 text-sm font-medium text-red-600 hover:text-red-500 sm:ml-0 sm:mt-3"
-                            onClick={() => {
+                            className="ml-auto p-2 rounded-full bg-red-100 hover:bg-red-200"
+                            onClick={() =>
                               setCart(
                                 cart.filter((item) => item.id !== product.id)
-                              );
-                            }}
+                              )
+                            }
                           >
-                            <span className="text-black">Remove</span>
+                            <TrashIcon className="h-6 w-6 text-red-600" />
                           </button>
                         </div>
+                        <p className="mt-2 flex items-center text-sm text-green-500">
+                          <CheckIcon className="h-5 w-5" aria-hidden="true" />
+                          In stock
+                        </p>
                       </div>
-
-                      <p className="mt-4 flex space-x-2 text-sm text-gray-700">
-                        <CheckIcon
-                          className="h-5 w-5 flex-shrink-0 text-green-500"
-                          aria-hidden="true"
-                        />
-
-                        <span>{"In stock"}</span>
-                      </p>
                     </div>
                   </li>
                 ))}
@@ -278,133 +150,110 @@ export default function Cart() {
             </div>
 
             <div className="mt-10 lg:mt-0 lg:w-1/4">
-              <div className="rounded-lg bg-white shadow-lg px-4 py-6 sm:p-6 lg:p-8">
-                <h2 className="text-lg font-medium text-gray-900">Order Summary</h2>
+              <div className="bg-white rounded-lg shadow-lg p-6">
+                <h2 className="text-lg font-medium text-gray-900">
+                  Order Summary
+                </h2>
 
-                <div className="flow-root mt-6">
-                  <dl className="-my-4 divide-y divide-gray-200 text-sm">
-                    <div className="flex items-center justify-between py-4">
-                      <dt className="text-gray-600">Subtotal</dt>
-                      <dd className="font-medium text-gray-900">
-                        {"₹ " + calculateTotal(cart)}
-                      </dd>
+                <div className="mt-6 space-y-4">
+                  <div className="flex justify-between text-gray-600">
+                    <span>Subtotal</span>
+                    <span>₹{calculateTotal(cart)}</span>
+                  </div>
+                  <div className="flex justify-between text-gray-600">
+                    <span>Shipping</span>
+                    <span>
+                      {calculateShipping(cart) === 0
+                        ? "Free"
+                        : `₹${calculateShipping(cart)}`}
+                    </span>
+                  </div>
+                  <div className="flex justify-between text-gray-600">
+                    <span>Tax</span>
+                    <span>₹{calculateTax(cart)}</span>
+                  </div>
+                  <div className="flex justify-between text-gray-600">
+                    <span>Fixed Discount</span>
+                    <span>₹{calculateDiscount(cart)}</span>
+                  </div>
+                  {isPromoCodeValid && (
+                    <div className="flex justify-between text-gray-600">
+                      <span>Promo Discount</span>
+                      <span>₹{calculatePromoDiscount(cart, promoCode)}</span>
                     </div>
-                    <div className="flex items-center justify-between py-4">
-                      <dt className="text-gray-600">Shipping</dt>
-                      <dd className="font-medium text-gray-900">
-                        {calculateShipping(cart) === 0
-                          ? "Free"
-                          : "₹ " + calculateShipping(cart)}
-                      </dd>
-                    </div>
-                    <div className="flex items-center justify-between py-4">
-                      <dt className="text-gray-600">Tax</dt>
-                      <dd className="font-medium text-gray-900">
-                        {"₹ " + calculateTax(cart)}
-                      </dd>
-                    </div>
-                    <div className="flex items-center justify-between py-4">
-                      <dt className="text-gray-600">Fixed Discount</dt>
-                      <dd className="font-medium text-gray-900">
-                        {"₹ " + calculateDiscount(cart)}
-                      </dd>
-                    </div>
-                    {isPromoCodeValid ? (
-                      <div className="flex items-center justify-between py-4">
-                        <dt className="text-gray-600">Promo Discount</dt>
-                        <dd className="font-medium text-gray-900">
-                          {"₹ " + calculatePromoDiscount(cart, promoCode)}
-                        </dd>
+                  )}
+
+                  {!isPromoCodeValid && enterPromoCode && (
+                    <div className="space-y-2">
+                      <label
+                        htmlFor="promo"
+                        className="block text-sm text-gray-600"
+                      >
+                        Promo Code
+                      </label>
+                      <div className="flex flex-col space-y-2">
+                        <input
+                          type="text"
+                          id="promo"
+                          value={promoCode}
+                          onChange={(e) => setPromoCode(e.target.value)}
+                          className="border border-gray-300 rounded-md px-3 py-1"
+                          />
+                        <button
+                          type="button"
+                          className="bg-black text-white px-3 py-2 rounded-md"
+                          onClick={() => {
+                            if (calculatePromoDiscount(cart, promoCode) !== 0) {
+                              setIsPromoCodeValid(true);
+                              toast.success("Promo code applied");
+                            } else {
+                              setIsPromoCodeValid(false);
+                              toast.error("Invalid Promo code");
+                            }
+                          }}
+                        >
+                          Apply
+                        </button>
+                        <button
+                          type="button"
+                          className="bg-red-600 text-white px-3 py-2 rounded-md"
+                          onClick={() => setEnterPromoCode(false)}
+                        >
+                          Close
+                        </button>
                       </div>
-                    ) : (
-                      <div className="flex items-center justify-between py-4">
-                        {enterPromoCode ? (
-                          <>
-                            <dt className="text-gray-600 self-start">
-                              Enter Promo Code (OFF15)
-                            </dt>
-                            <dd className="font-medium text-gray-900">
-                              <input
-                                type="text"
-                                value={promoCode}
-                                onChange={(e) => {
-                                  setPromoCode(e.target.value);
-                                }}
-                                className="border border-gray-300 rounded-md px-3 py-1 w-40"
-                              />
-                              <div className="flex flex-row gap-x-4 justify-end mt-2">
-                                <button
-                                  type="button"
-                                  className="bg-black text-white px-3 py-1 rounded-md"
-                                  onClick={() => {
-                                    if (
-                                      calculatePromoDiscount(cart, promoCode) !=
-                                      0
-                                    ) {
-                                      setIsPromoCodeValid(true);
-                                      toast.success("Promo code applied");
-                                    } else {
-                                      setIsPromoCodeValid(false);
-                                      toast.error("Invalid Promo code");
-                                    }
-                                  }}
-                                >
-                                  Apply
-                                </button>
-                                <button
-                                  type="button"
-                                  className="bg-red-600 text-white px-3 py-1 rounded-md"
-                                  onClick={() => {
-                                    setEnterPromoCode(!enterPromoCode);
-                                  }}
-                                >
-                                  Close
-                                </button>
-                              </div>
-                            </dd>
-                          </>
-                        ) : (
-                          <>
-                            <dt className="text-gray-600">
-                              Have a promo code?
-                            </dt>
-                            <dd className="font-medium text-gray-900">
-                              <span
-                                className="text-black cursor-pointer"
-                                onClick={(e) => {
-                                  setEnterPromoCode(!enterPromoCode);
-                                }}
-                              >
-                                Click Here
-                              </span>
-                            </dd>
-                          </>
-                        )}
-                      </div>
-                    )}
-                    <div className="flex items-center justify-between py-4">
-                      <dt className="text-base font-medium text-gray-900">
-                        Order total
-                      </dt>
-                      <dd className="text-base font-medium text-gray-900">
-                        {isPromoCodeValid ? (
-                          <>{"₹ " + calculateGrandTotal(cart, promoCode)}</>
-                        ) : (
-                          <>{"₹ " + calculateTotalBeforePromo(cart)}</>
-                        )}
-                      </dd>
                     </div>
-                  </dl>
+                  )}
+
+                  {!enterPromoCode && !isPromoCodeValid && (
+                    <button
+                      type="button"
+                      className="text-sm text-black hover:underline"
+                      onClick={() => setEnterPromoCode(true)}
+                    >
+                      Have a promo code? Click here
+                    </button>
+                  )}
+
+                  <div className="flex justify-between text-gray-900 font-medium">
+                    <span>Order total</span>
+                    <span>
+                      {isPromoCodeValid
+                        ? `₹${calculateGrandTotal(cart, promoCode)}`
+                        : `₹${calculateTotalBeforePromo(cart)}`}
+                    </span>
+                  </div>
                 </div>
               </div>
-              <div className="mt-10">
+
+              <div className="mt-6">
                 <button
                   onClick={(e) => {
                     e.preventDefault();
                     setCart([]);
                     Router.push("/checkout");
                   }}
-                  className="w-full rounded-md border border-transparent bg-black py-3 px-4 text-base font-medium text-white shadow-sm hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-50"
+                  className="w-full rounded-md bg-black py-3 px-4 text-white font-medium shadow hover:bg-gray-800"
                 >
                   Checkout
                 </button>
@@ -413,12 +262,8 @@ export default function Cart() {
               <div className="mt-6 text-center text-sm text-gray-500">
                 <p>
                   or{" "}
-                  <Link
-                    href="/products"
-                    className="font-medium text-black cursor-pointer hover:text-gray-800"
-                  >
-                    Continue Shopping
-                    <span aria-hidden="true"> &rarr;</span>
+                  <Link href="/products" className="text-black hover:underline">
+                    Continue Shopping &rarr;
                   </Link>
                 </p>
               </div>
@@ -426,36 +271,20 @@ export default function Cart() {
           </form>
         ) : (
           <>
-            <div className="flex flex-row justify-center py-10 w-full">
+            <div className="flex justify-center py-10">
               <Image
                 src={EmptyCart}
                 alt="Empty Cart"
-                className=""
                 width={450}
                 height={400}
               />
             </div>
-            <div>
-              <h1 className="text-2xl font-semibold text-gray-900 text-center">
-                Your cart feels light! Let&apos;s add some items.
-              </h1>
-              <div className="mt-6 text-center text-sm text-gray-500">
-                <p>
-                  <Link
-                    href="/products"
-                    className="font-medium text-black cursor-pointer hover:text-gray-800"
-                  >
-                    Continue Shopping
-                    <span aria-hidden="true"> &rarr;</span>
-                  </Link>
-                </p>
-              </div>
-            </div>
+            <h1 className="text-2xl text-center font-bold">
+              Your cart is empty.
+            </h1>
           </>
         )}
       </div>
     </div>
   );
 }
-
-
